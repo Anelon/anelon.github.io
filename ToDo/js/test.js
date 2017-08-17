@@ -1,3 +1,6 @@
+//local storage test
+localStorage.setItem("lastname", "Smith");
+
 //set up variables
 var toDo = ["Work", "School", "Homework", "Dishes"];
 var boxDiv = document.createElement("div");
@@ -100,13 +103,13 @@ function append(item) {
     })
     
     delButton.addEventListener("click", function () {
+        var pacman = document.createElement("div");
+        var int = 0;
         for (var i = 0; i < toDo.length; i++) {
             if (i == event.target.id) {
                 toDo.splice(i, 1);
             }
         }
-        
-        var pacman = document.createElement("div");
         boxDiv.appendChild(pacman);
     
         var pos = 500;
@@ -139,7 +142,6 @@ function append(item) {
         }
     })
 }
-    
 
 function print() {
     listCase.textContent = "";

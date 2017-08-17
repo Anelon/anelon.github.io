@@ -1,5 +1,10 @@
 //set up variables
-var toDo = ["Work", "School", "Homework", "Dishes"];
+//var toDo = ["Work", "School", "Homework", "Dishes"];
+var toDo = [];
+var place = 0;
+if (typeof(Storage) !== "undefined") {
+    place = parseInt(localStorage.getItem(0));
+}
 var boxDiv = document.createElement("div");
 document.body.appendChild(boxDiv);
 boxDiv.setAttribute("class", "itemdiv");
@@ -30,12 +35,26 @@ enterToDo.addEventListener("click", function() {
     var addToDo = document.getElementById('setToDo').value;
     addToDo = addToDo[0].toUpperCase() + addToDo.slice(1);
     toDo.push(addToDo);
+    
     setToDo.value = "";
     //print out the todo
     print();
 })
 
-//print each item to do
+// Check previous items
+if (typeof(Storage) !== "undefined") {
+    // Retrieve
+    var find = 1;
+    while(localStorage.getItem(find)) {
+        toDo.push(localStorage.getItem(find))
+        find++;
+    }
+    print();
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+
+
 function append(item) {
     var div = document.createElement("div");
     div.setAttribute("id", "div");
@@ -100,13 +119,13 @@ function append(item) {
     })
     
     delButton.addEventListener("click", function () {
+        var pacman = document.createElement("div");
+        var int = 0;
         for (var i = 0; i < toDo.length; i++) {
             if (i == event.target.id) {
                 toDo.splice(i, 1);
             }
         }
-        
-        var pacman = document.createElement("div");
         boxDiv.appendChild(pacman);
     
         var pos = 500;
@@ -139,10 +158,13 @@ function append(item) {
         }
     })
 }
-    
 
 function print() {
     listCase.textContent = "";
+    var toDo = [];
+    for(var i = 0; i < 10; i++) {
+        toDo.push(localStorage.getItem(i))
+    }
     for (var i = 0; i < toDo.length; i ++) {
         append(i);
     }
