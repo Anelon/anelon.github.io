@@ -3,7 +3,10 @@
 var toDo = [];
 var place = 0;
 if (typeof(Storage) !== "undefined") {
-    place = parseInt(localStorage.getItem(0));
+    while(localStorage.getItem(place)) {
+        toDo.push(localStorage.getItem(place));
+        place++;
+    }
 }
 var boxDiv = document.createElement("div");
 document.body.appendChild(boxDiv);
@@ -40,20 +43,6 @@ enterToDo.addEventListener("click", function() {
     //print out the todo
     print();
 })
-
-// Check previous items
-if (typeof(Storage) !== "undefined") {
-    // Retrieve
-    var find = 1;
-    while(localStorage.getItem(find)) {
-        toDo.push(localStorage.getItem(find))
-        find++;
-    }
-    print();
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-}
-
 
 function append(item) {
     var div = document.createElement("div");
@@ -161,11 +150,10 @@ function append(item) {
 
 function print() {
     listCase.textContent = "";
-    var toDo = [];
-    for(var i = 0; i < 10; i++) {
-        toDo.push(localStorage.getItem(i))
-    }
+    //clear the local storage and write the array
+    localStorage.clear();
     for (var i = 0; i < toDo.length; i ++) {
+        localStorage.setItem(i,toDo[i]);
         append(i);
     }
 }

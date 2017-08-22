@@ -1,6 +1,3 @@
-//local storage test
-localStorage.setItem("lastname", "Smith");
-
 //set up variables
 var toDo = ["Work", "School", "Homework", "Dishes"];
 var boxDiv = document.createElement("div");
