@@ -2,7 +2,7 @@ body {
     background-image: url("https://www.filterforge.com/filters/11635-v7.jpg");
     background-repeat: repeat;
     border: 64px;
-    border-image-source: url("http://i1172.photobucket.com/albums/r570/Gamex101/StoneTile.png");
+    border-image-source: url(StoneTile.png);
     border-image-slice: 64 64;
     border-image-outset: 0;
     border-image-repeat: repeat;

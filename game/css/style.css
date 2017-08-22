@@ -1,0 +1,10 @@
+body {
+    background-image: url(tilebacground.png);
+    background-repeat: repeat;
+    border: 64px;
+    border-image-source: url(StoneTile.png);
+    border-image-slice: 64 64;
+    border-image-outset: 0;
+    border-image-repeat: repeat;
+    padding: 10px;
+}
