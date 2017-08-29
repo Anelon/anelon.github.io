@@ -21,6 +21,10 @@ setToDo.placeholder = "To Do";
 var enterToDo = document.createElement("button");
 enterToDo.innerHTML = "Add Item";
 
+//set up clear all button
+var clearAll = document.createElement("button");
+clearAll.innerHTML = "Clear ToDo";
+
 //set up area for items
 var toDoList = document.createElement("ol");
 var listCase = document.createElement("div");
@@ -30,6 +34,7 @@ listCase.appendChild(toDoList);
 boxDiv.appendChild(addToDoDiv);
 addToDoDiv.appendChild(setToDo);
 addToDoDiv.appendChild(enterToDo);
+addToDoDiv.appendChild(clearAll);
 
 print();
 
@@ -42,6 +47,24 @@ enterToDo.addEventListener("click", function() {
     setToDo.value = "";
     //print out the todo
     print();
+})
+
+setToDo.addEventListener("keypress", function(event) {
+    var x = event.keyCode;
+    if(x == 13) {
+        var addToDo = document.getElementById('setToDo').value;
+        addToDo = addToDo[0].toUpperCase() + addToDo.slice(1);
+        toDo.push(addToDo);
+        
+        setToDo.value = "";
+        //print out the todo
+        print();
+    }
+})
+
+clearAll.addEventListener("click", function() {
+    toDo.length = 0; //clears the array
+    print(); //refreshes the list
 })
 
 function append(item) {
