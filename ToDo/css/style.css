@@ -1,11 +1,6 @@
 body {
     background-image: url("https://www.filterforge.com/filters/11635-v7.jpg");
     background-repeat: repeat;
-    border: 64px;
-    border-image-source: url(StoneTile.png);
-    border-image-slice: 64 64;
-    border-image-outset: 0;
-    border-image-repeat: repeat;
     padding: 10px;
 }
 

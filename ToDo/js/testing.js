@@ -1,12 +1,21 @@
 //set up variables
-//var toDo = ["Work", "School", "Homework", "Dishes"];
-var toDo = [];
-var place = 0;
-if (typeof(Storage) !== "undefined") {
-    while(localStorage.getItem(place)) {
+localStorage.setItem("list0", "Default");
+var toDo = []; //array for the current list
+var place = 0; //default place in the list
+var LIST = "list";
+var listit = 0; //itterator for finding lists
+var lists = []; //array of list names
+if (typeof(Storage) !== "undefined") { //check if local storage is availible
+    while(localStorage.getItem(LIST + listit)) {//get different lists
+        lists.push(localStorage.getItem(LIST + listit))
+        listit++;
+    }
+    while(localStorage.getItem(place)) {//get items on each list
         toDo.push(localStorage.getItem(place));
         place++;
     }
+} else { //add generic todos
+    var toDo = ["Work", "School", "Homework", "Dishes"];
 }
 var boxDiv = document.createElement("div");
 document.body.appendChild(boxDiv);
@@ -175,6 +184,9 @@ function print() {
     listCase.textContent = "";
     //clear the local storage and write the array
     localStorage.clear();
+    for (var i = 0; i < lists.length; i++) {
+        localStorage.setItem("list" + i, lists[i]);
+    }
     for (var i = 0; i < toDo.length; i ++) {
         localStorage.setItem(i,toDo[i]);
         append(i);

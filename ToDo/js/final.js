@@ -1,8 +1,16 @@
 //set up variables
 //var toDo = ["Work", "School", "Homework", "Dishes"];
+localStorage.setItem("list0", "default");
 var toDo = [];
 var place = 0;
+var listplace = "list";
+var listit = 0;
+var lists = [];
 if (typeof(Storage) !== "undefined") {
+    while(localStorage.getItem(listplace + listit)) {
+        lists.push(localStorage.getItem(listplace + listit))
+        listit++;
+    }
     while(localStorage.getItem(place)) {
         toDo.push(localStorage.getItem(place));
         place++;
@@ -178,5 +186,8 @@ function print() {
     for (var i = 0; i < toDo.length; i ++) {
         localStorage.setItem(i,toDo[i]);
         append(i);
+    }
+    for (var i = 0; i < lists.length; i++) {
+        localStorage.setItem("list" + i, lists[i]);
     }
 }
