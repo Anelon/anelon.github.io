@@ -15,6 +15,34 @@ body {
     text-decoration: line-through;
 }
 
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+
+.show {display:block;}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+}
+
 .itemdiv {
     border-radius: 10px;
     background: #808080;

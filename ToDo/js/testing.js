@@ -17,6 +17,18 @@ if (typeof(Storage) !== "undefined") { //check if local storage is availible
 } else { //add generic todos
     var toDo = ["Work", "School", "Homework", "Dishes"];
 }
+
+//set up list selector
+var listSelect = document.createElement("div"); //container for list dropdown
+listSelect.setAttribute("class", "dropdown");
+var select = document.createElement("button"); //list dropdown button
+select.setAttribute("class", "dropbtn");
+select.innerHTML = "Lists";
+var listNames = document.createElement("div"); //area for lists
+listNames.setAttribute("class", "dropdown-content");
+document.body.appendChild(listSelect);
+
+//set up main areas on page
 var boxDiv = document.createElement("div");
 document.body.appendChild(boxDiv);
 boxDiv.setAttribute("class", "itemdiv");
@@ -28,11 +40,20 @@ var setToDo = document.createElement("input");
 setToDo.setAttribute('id', 'setToDo');
 setToDo.placeholder = "To Do";
 var enterToDo = document.createElement("button");
-enterToDo.innerHTML = "Add Item";
+enterToDo.innerHTML = "Add";
+
+//set up adding lists
+var addList = document.createElement("div");
+addList.setAttribute("class", "additem");
+var setList = document.createElement("input");
+setList.setAttribute('id', 'setList');
+setList.placeholder = "Add List";
+var enterList = document.createElement("button");
+enterList.innerHTML = "Add";
 
 //set up clear all button
 var clearAll = document.createElement("button");
-clearAll.innerHTML = "Clear ToDo";
+clearAll.innerHTML = "Clear";
 
 //set up area for items
 var toDoList = document.createElement("ol");
@@ -45,7 +66,11 @@ addToDoDiv.appendChild(setToDo);
 addToDoDiv.appendChild(enterToDo);
 addToDoDiv.appendChild(clearAll);
 
+listSelect.appendChild(select);
+
 print();
+
+//BUTTONS
 
 //check if there is something to be added to the todo
 enterToDo.addEventListener("click", function() {
@@ -75,6 +100,8 @@ clearAll.addEventListener("click", function() {
     toDo.length = 0; //clears the array
     print(); //refreshes the list
 })
+
+//FUNCTIONS
 
 function append(item) {
     var div = document.createElement("div");
