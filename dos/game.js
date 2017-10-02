@@ -121,7 +121,25 @@ function useAbility(skill, num) {
     placeAbility(skill, num);
 
     var areaX = parseInt(abilitysizeX); //use in area specified
-    if (areaX == 2) ;//fix me =(
+    var areaY = parseInt(abilitysizeY);
+    if (areaX == 2 && areaY == 2) {
+        if (parseInt(num / dimention) == parseInt((num + 1) / dimention)) {
+            placeAbility(skill, num+1); 
+        }
+        var location = num + dimention;
+        if (location < (dimention * dimention)) {
+            placeAbility(skill, location);
+            if (parseInt(location / dimention) == parseInt((location + 1) / dimention)) {
+                placeAbility(skill, location + 1);
+            }
+        }
+    } else if (areaX == 2) {
+        if (parseInt(num / dimention) == parseInt((num + 1) / dimention)) {
+            placeAbility(skill, num+1); 
+        }
+    } else if (areaY == 2) {
+        placeAbility(skill, num+dimention);
+    }
     for (var i = 1; i < areaX / 2; i++) { //use in area specified
         var location = num + i; //right
         if (parseInt(num / dimention) == parseInt((num + i) / dimention)) {
@@ -138,7 +156,6 @@ function useAbility(skill, num) {
             }
         }
 
-        var areaY = parseInt(abilitysizeY);
         for (var j = 1; j < areaY / 2; j++) {
             var shiftY = num + j * dimention;
             if (shiftY < dimention * dimention) {
