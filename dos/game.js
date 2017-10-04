@@ -246,6 +246,7 @@ function usetmp(num) { //TMP
 function useTornado(num) { //tornado
     var spot = document.getElementById(num);
     var spotClass = spot.classList;
+    spot.innerText = "";
     for (var i = 0; i < terrainTypes.length; i++) spotClass.remove(terrainTypes[i]);
 }
 //puts water in area
