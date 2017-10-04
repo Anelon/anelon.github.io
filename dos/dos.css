@@ -27,6 +27,19 @@ body {
     background-color: gray;
 }
 
+.player1 {
+    border-color: darkred;
+}
+.player2 {
+    border-color: darkblue;
+}
+.range1 {
+   border-color: red; 
+}
+.range2 {
+    border-color: blue;
+}
+
 .top {
     border-top-width: 4px;
 }
