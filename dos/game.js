@@ -92,8 +92,8 @@ for (var i = 0; i < dimention; i++) {
         if (j == 0) rows[i][j].className += " left";
         if (j == dimention - 1) rows[i][j].className += " right";
         if (i == dimention - 1) rows[i][j].className += " bottom";
-        if (i == 0 && j == 0) rows[i][j].className += " player1";
-        if (i == dimention - 1 && j == dimention - 1) rows[i][j].className += " player2";
+        //if (i == 0 && j == 0) rows[i][j].className += " player1";
+        //if (i == dimention - 1 && j == dimention - 1) rows[i][j].className += " player2";
         var num = i + j;
         rows[i][j].addEventListener("click", function() {
             console.log(event.target.id);
