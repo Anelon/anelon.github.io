@@ -81,7 +81,7 @@ $(document).ready(function() {
 			var slythpoints = parseInt(slytherin/total * 100) + "%" + " of the total at: " + slytherin;
 			var hufflpoints = parseInt(hufflepuff/total * 100) + "%" + " of the total at: " + hufflepuff;
 			var gryffpoints = parseInt(gryffindor/total * 100) + "%" + " of the total at: " + gryffindor;
-			
+			//console.log("things");
 			document.getElementById("ravenclawPoint").innerText += ravenpoints; 
 			document.getElementById("slytherinPoint").innerText += slythpoints;
 			document.getElementById("hufflepuffPoint").innerText += hufflpoints;

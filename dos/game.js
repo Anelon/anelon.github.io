@@ -29,6 +29,8 @@ for (var i = 0; i < abilities.length; i++) {
 
 var abilitysizeX = 1;
 var abilitysizeY = 1;
+var maxSize = 5;
+var minSize = 1;
 var abilitySizeDiv = document.getElementById("xy"); //xy values, fun
 var xdiv = document.createElement("div");
 var ydiv = document.createElement("div");
@@ -62,13 +64,13 @@ abilitySizeDiv.appendChild(currentxy);
 setxy.addEventListener("click", function() {
     if (parseInt(x.value)) {
         abilitysizeX = parseInt(x.value);
-        if (abilitysizeX > 9) abilitysizeX = 9;
-        if (abilitysizeX < 1) abilitysizeX = 1;
+        if (abilitysizeX > maxSize) abilitysizeX = maxSize;
+        if (abilitysizeX < minSize) abilitysizeX = minSize;
     }
     if (parseInt(y.value)) {
         abilitysizeY = parseInt(y.value);
-        if (abilitysizeY > 9) abilitysizeY = 9;
-        if (abilitysizeY < 1) abilitysizeY = 1;
+        if (abilitysizeY > maxSize) abilitysizeY = maxSize;
+        if (abilitysizeY < minSize) abilitysizeY = minSize;
     }
     x.value = "";
     y.value = "";
