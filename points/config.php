@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "point", "points", "points2019");
+$link = mysqli_connect("localhost", "newPoint", "newPoints", "points2019");
 
 // Check connection
 if($link === false){
