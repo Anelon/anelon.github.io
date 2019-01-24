@@ -3,14 +3,6 @@
 server with default setting (user 'root' with no password) */
 //require_once("/config.php");
 require_once 'config.php';
-/*
-$link = mysqli_connect("localhost", "point", "points", "points2019");
-
-// Check connection
-if($link === false){
-	die("ERROR: Could not connect. " . mysqli_connect_error());
-}
- */
 
 // Escape user inputs for security
 $house = mysqli_real_escape_string($link, $_REQUEST['house']);
